@@ -435,7 +435,7 @@
   <select class="trip-select" id="tripSelect"></select>
   <button class="icon-btn" id="newTripBtn">➕ 새 여행</button>
   <button class="icon-btn" id="dupTripBtn">📋 복사</button>
-  <button class="icon-btn" id="loadSchoolDefaultsBtn">📋 기본 목록 불러오기</button>
+  <button class="icon-btn" id="loadSchoolDefaultsBtn">🪄 기본 목록 불러오기</button>
   <button class="icon-btn" id="historyBtn">🗂️ 기록</button>
   <button class="icon-btn" id="resetBtn" title="저장된 모든 데이터를 지우고 초기 상태로 되돌립니다">🔄 초기화</button>
   <button class="icon-btn" id="darkToggle">🌙</button>
@@ -490,7 +490,7 @@
 
   <div class="controls">
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="준비물 검색... (ESC로 초기화)">
+      <input type="text" id="searchInput" placeholder="준비물 검색">
       <button class="clear-x" id="clearSearch">✕</button>
     </div>
     <div class="chip-group" id="filterChips">
@@ -564,14 +564,14 @@
 const STORAGE_KEY = 'travelChecklistApp_v6';
 
 const CATEGORIES = [
-  { id:'doc',  icon:'📄', name:'중요' },
+  { id:'doc',  icon:'💳', name:'중요' },
   { id:'device', icon:'📱', name:'전자기기' },
   { id:'clothes',icon:'👕', name:'의류' },
   { id:'shoes',  icon:'👟', name:'신발' },
   { id:'toilet', icon:'🪥', name:'세면도구' },
   { id:'medic',  icon:'💊', name:'의약품 & 영양제' },
   { id:'snack',  icon:'🍪', name:'간식' },
-  { id:'etc',    icon:'🎒', name:'기타' }
+  { id:'etc',    icon:'🕶️', name:'기타' }
 ];
 
 const LUGGAGE_LABEL = { checked:'🧳 수화물', carryon:'🎒 보조가방', both:'🔄 둘다챙기기' };
