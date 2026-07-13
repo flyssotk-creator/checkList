@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>✈️ W.A.V.E. 준비물 체크리스트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     디자인 토큰 (컬러 / 타이포 / 스페이싱) - 라이트 & 다크 모드
+     ============================================================ */
+  :root{
+    --bg:#eef8fb;
+    --bg-grad: linear-gradient(160deg,#eaf7fb 0%,#e7fbf5 100%);
+    --card-bg:#ffffff;
+    --card-bg-soft:#f4fbfd;
+    --sky:#3fb6e0;
+    --sky-strong:#2a9fcb;
+    --sky-light:#dbf2fb;
+    --mint:#3fd6bf;
+    --mint-strong:#22b39d;
+    --mint-light:#dcf9f2;
+    --text:#1f2d3a;
+    --text-soft:#6b7f8c;
+    --text-faint:#9db0bb;
+    --border:#e1eef2;
+    --border-strong:#c9dfe6;
+    --shadow-sm:0 2px 8px rgba(31,64,80,.06);
+    --shadow-md:0 8px 24px rgba(31,64,80,.10);
+    --shadow-lg:0 16px 40px rgba(31,64,80,.16);
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:22px;
+    --danger:#f0645f;
+    --danger-light:#fde6e5;
+    --warning:#f5a623;
+    --warning-light:#fff3dc;
+    --gold:#e8b400;
+    --success:#2fbf87;
+    --font-main: 'Jua', -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --font-heading: 'Jua', -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  html[data-theme="dark"]{
+    --bg:#0e1620;
+    --bg-grad: linear-gradient(160deg,#0d1620 0%,#0d1c1c 100%);
+    --card-bg:#161f2a;
+    --card-bg-soft:#131b25;
+    --sky:#4fc3ec;
+    --sky-strong:#6fd0f0;
+    --sky-light:#16303a;
+    --mint:#3fe0c6;
+    --mint-strong:#4fe8d0;
+    --mint-light:#123028;
+    --text:#e8f1f5;
+    --text-soft:#9fb3bf;
+    --text-faint:#6d8390;
+    --border:#233240;
+    --border-strong:#2e4250;
+    --shadow-sm:0 2px 8px rgba(0,0,0,.25);
+    --shadow-md:0 8px 24px rgba(0,0,0,.35);
+    --shadow-lg:0 16px 40px rgba(0,0,0,.5);
+    --danger:#ff6b66;
+    --danger-light:#3a1f20;
+    --warning:#ffb84d;
+    --warning-light:#3a2c14;
+    --gold:#ffd166;
+    --success:#3fdb9a;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--font-main);
+    background:var(--bg-grad);
+    color:var(--text);
+    min-height:100vh;
+    transition:background .3s ease,color .3s ease;
+    -webkit-tap-highlight-color:transparent;
+    padding-bottom:60px;
+  }
+  ::selection{background:var(--mint-light);}
+  h1,h2,h3,h4{margin:0;font-family:var(--font-heading);}
+  button{font-family:inherit;cursor:pointer;}
+  input,select,textarea{font-family:inherit;}
+
+  /* ---------------- 상단 고정 바 ---------------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px) saturate(160%);
+    background:color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom:1px solid var(--border);
+    padding:14px 20px;
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  }
+  .topbar h1{
+    font-size:20px;font-weight:800;letter-spacing:-.3px;
+    display:flex;align-items:center;gap:8px;margin-right:auto;
+    background:linear-gradient(100deg,var(--sky-strong),var(--mint-strong));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .topbar .icon-btn{
+    border:1px solid var(--border-strong);background:var(--card-bg);
+    border-radius:12px;padding:9px 12px;font-size:14px;color:var(--text);
+    font-family:var(--font-heading);
+    display:flex;align-items:center;gap:6px;transition:all .15s ease;
+    box-shadow:var(--shadow-sm);white-space:nowrap;
+  }
+  .topbar .icon-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md);border-color:var(--sky);}
+  .trip-select{
+    border:1px solid var(--border-strong);background:var(--card-bg);border-radius:12px;
+    padding:9px 12px;font-size:14px;color:var(--text);max-width:180px;box-shadow:var(--shadow-sm);
+  }
+
+  .wrap{max-width:960px;margin:0 auto;padding:18px 16px 40px;}
+
+  /* ---------------- 카드 공통 ---------------- */
+  .card{
+    background:var(--card-bg);border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);padding:20px;margin-bottom:18px;
+    border:1px solid var(--border);
+    animation:fadeUp .35s ease both;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .card h2{font-size:16px;font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+
+  /* 스크랩북 느낌의 washi tape 장식 (색상은 기존 sky/mint 유지) */
+  .tape-card{position:relative;margin-top:6px;}
+  .tape-card::before{
+    content:"";position:absolute;top:-11px;left:50%;width:76px;height:20px;
+    transform:translateX(-50%) rotate(-3deg);
+    background:repeating-linear-gradient(45deg, rgba(255,255,255,.55) 0 5px, rgba(63,182,224,.35) 5px 10px);
+    border:1px solid rgba(63,182,224,.35);border-radius:2px;
+  }
+
+  /* ---------------- 주의사항 카드 ---------------- */
+  .caution-wrap{margin-bottom:18px;}
+  .caution-card{
+    background:linear-gradient(100deg,var(--warning-light),var(--card-bg));
+    border:1px solid var(--warning);border-radius:var(--radius-md);
+    padding:14px 16px;box-shadow:var(--shadow-sm);margin-bottom:8px;
+    display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:600;
+    animation:fadeUp .3s ease both;
+  }
+  .caution-card .del-caution{margin-left:auto;border:none;background:none;color:var(--text-faint);font-size:16px;}
+
+  /* ---------------- 여행 정보 카드 ---------------- */
+  .trip-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .trip-info-grid .full{grid-column:1/-1;}
+  .field label{font-size:12px;color:var(--text-soft);font-weight:700;margin-bottom:4px;display:block;}
+  .field input, .field textarea{
+    width:100%;border:1px solid var(--border-strong);border-radius:10px;padding:10px 12px;
+    background:var(--card-bg-soft);color:var(--text);font-size:14px;transition:border .15s;
+  }
+  .field input:focus, .field textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 3px var(--sky-light);}
+  .field textarea{resize:vertical;min-height:44px;}
+
+  /* ---------------- D-Day ---------------- */
+  .dday-banner{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    background:linear-gradient(110deg,var(--sky),var(--mint));
+    color:#fff;border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:18px;
+    box-shadow:var(--shadow-lg);
+  }
+  .dday-banner .dday-num{font-size:34px;font-weight:900;letter-spacing:-1px;font-family:var(--font-heading);}
+  .dday-banner .dday-label{font-size:13px;opacity:.92;font-weight:600;}
+  .dday-banner .dday-sub{font-size:13px;opacity:.85;text-align:right;}
+
+  /* ---------------- 대시보드 ---------------- */
+  .dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
+  .dash-card{
+    background:var(--card-bg);border-radius:var(--radius-md);padding:16px;
+    box-shadow:var(--shadow-sm);border:1px solid var(--border);text-align:center;
+  }
+  .dash-card .num{font-size:24px;font-weight:800;font-family:var(--font-heading);}
+  .dash-card .lbl{font-size:12px;color:var(--text-soft);margin-top:2px;font-weight:600;}
+  .dash-card.primary{grid-column:span 4;text-align:left;background:var(--mint-light);border-color:var(--mint);}
+  .progress-outer{
+    background:var(--border);border-radius:20px;height:14px;overflow:hidden;margin-top:10px;
+  }
+  .progress-inner{
+    height:100%;border-radius:20px;background:linear-gradient(90deg,var(--sky),var(--mint));
+    transition:width .6s cubic-bezier(.4,0,.2,1);
+  }
+  .progress-row{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:14px;}
+  .progress-row .pct{font-size:26px;color:var(--mint-strong);font-weight:900;font-family:var(--font-heading);}
+
+  /* ---------------- 일정표(단체복) ---------------- */
+  .schedule-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;}
+  .schedule-card{
+    min-width:130px;background:var(--sky-light);border:1px solid var(--border-strong);
+    border-radius:var(--radius-md);padding:12px;flex:0 0 auto;
+  }
+  .schedule-card .date{font-weight:800;color:var(--sky-strong);font-size:13px;}
+  .schedule-card .loc{font-size:11px;color:var(--text-soft);margin-top:2px;}
+  .schedule-card .items{margin-top:6px;font-size:13px;font-weight:600;line-height:1.5;}
+
+  /* ---------------- 컨트롤 바 ---------------- */
+  .controls{
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;
+    background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);
+    padding:12px;box-shadow:var(--shadow-sm);
+  }
+  .search-box{position:relative;flex:1 1 200px;}
+  .search-box input{
+    width:100%;padding:10px 32px 10px 34px;border-radius:10px;border:1px solid var(--border-strong);
+    background:var(--card-bg-soft);color:var(--text);font-size:14px;
+  }
+  .search-box::before{content:"🔍";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:13px;}
+  .search-box .clear-x{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-faint);font-size:14px;display:none;}
+  .chip-group{display:flex;gap:6px;flex-wrap:wrap;}
+  .chip{
+    border:1px solid var(--border-strong);background:var(--card-bg-soft);border-radius:20px;
+    padding:7px 13px;font-size:13px;font-weight:700;color:var(--text-soft);transition:all .15s;
+    font-family:var(--font-heading);
+  }
+  .chip:hover{border-color:var(--sky);color:var(--text);}
+  .chip.active{background:linear-gradient(100deg,var(--sky),var(--mint));color:#fff;border-color:transparent;box-shadow:0 3px 0 var(--sky-strong);}
+  .chip.active:active{transform:translateY(2px);box-shadow:0 1px 0 var(--sky-strong);}
+  select.sort-select{border:1px solid var(--border-strong);border-radius:10px;padding:9px 10px;background:var(--card-bg-soft);color:var(--text);font-size:13px;}
+
+  .bulk-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+  .bulk-btn{
+    border:1px solid var(--border-strong);background:var(--card-bg);border-radius:10px;
+    padding:8px 12px;font-size:12.5px;font-weight:700;color:var(--text-soft);box-shadow:var(--shadow-sm);
+    font-family:var(--font-heading);
+  }
+  .bulk-btn:hover{color:var(--text);border-color:var(--sky);}
+  .bulk-btn.danger:hover{color:var(--danger);border-color:var(--danger);}
+
+  /* ---------------- 추가 폼 ---------------- */
+  .add-form{
+    display:flex;flex-wrap:wrap;gap:8px;background:var(--card-bg);border:1px solid var(--border);
+    border-radius:var(--radius-md);padding:14px;margin-bottom:18px;box-shadow:var(--shadow-sm);
+  }
+  .add-form input[type=text]{
+    flex:2 1 160px;border:1px solid var(--border-strong);border-radius:10px;padding:10px 12px;
+    background:var(--card-bg-soft);color:var(--text);font-size:14px;
+  }
+  .add-form select{flex:1 1 110px;border:1px solid var(--border-strong);border-radius:10px;padding:10px;background:var(--card-bg-soft);color:var(--text);font-size:13px;}
+  .add-form label.chk{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700;color:var(--text-soft);padding:0 4px;white-space:nowrap;}
+  .add-form button{
+    border:none;border-radius:10px;padding:10px 18px;font-weight:800;color:#fff;font-size:14px;
+    font-family:var(--font-heading);
+    background:linear-gradient(100deg,var(--sky),var(--mint));box-shadow:0 3px 0 var(--mint-strong);transition:transform .1s;
+  }
+  .add-form button:hover{transform:translateY(-1px);}
+  .add-form button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--mint-strong);}
+
+  /* ---------------- 카테고리 그룹 ---------------- */
+  .category-group{
+    background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-md);
+    margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow-sm);
+  }
+  .category-header{
+    display:flex;align-items:center;gap:8px;padding:13px 16px;cursor:pointer;user-select:none;
+    font-weight:800;font-size:15px;font-family:var(--font-heading);
+  }
+  .category-header:hover{background:var(--card-bg-soft);}
+  .category-header .count{margin-left:auto;font-size:12.5px;color:var(--text-soft);font-weight:700;background:var(--card-bg-soft);padding:3px 10px;border-radius:12px;}
+  .category-header .caret{transition:transform .2s ease;color:var(--text-faint);}
+  .category-header.collapsed .caret{transform:rotate(-90deg);}
+  .category-body{padding:4px 10px 10px;}
+  .category-body.hidden{display:none;}
+  .hidden{display:none !important;}
+  #aiToggleHeader.collapsed #aiCaret{transform:rotate(-90deg);}
+
+  .item-row{
+    display:flex;align-items:center;gap:10px;padding:10px 10px;border-radius:10px;
+    transition:background .15s ease;
+  }
+  .item-row:hover{background:var(--card-bg-soft);}
+  .item-row.dragging{opacity:.4;}
+  .item-row.drop-target{border-top:2px solid var(--sky);}
+  .item-check{
+    width:22px;height:22px;border-radius:7px;border:2px solid var(--border-strong);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:all .15s;color:#fff;font-size:13px;
+  }
+  .item-check:hover{border-color:var(--sky);}
+  .item-check.done{background:linear-gradient(100deg,var(--sky),var(--mint));border-color:transparent;}
+  .item-name{flex:1;font-size:14.5px;font-weight:600;word-break:break-word;}
+  .item-row.done .item-name{color:var(--text-faint);text-decoration:line-through;text-decoration-thickness:2px;}
+  .item-name-input{flex:1;border:1px solid var(--sky);border-radius:8px;padding:6px 8px;font-size:14.5px;background:var(--card-bg-soft);color:var(--text);}
+  .badge{font-size:10.5px;font-weight:800;border-radius:6px;padding:2px 6px;flex:0 0 auto;}
+  .badge.school{background:var(--warning-light);color:var(--gold);border:1px solid var(--warning);}
+  .badge.luggage{background:var(--sky-light);color:var(--sky-strong);border:1px solid var(--border-strong);}
+  .row-actions{display:flex;gap:4px;flex:0 0 auto;}
+  .row-actions button{
+    border:none;background:none;color:var(--text-faint);font-size:15px;padding:4px 6px;border-radius:6px;
+  }
+  .row-actions button:hover{background:var(--card-bg-soft);color:var(--text);}
+  .row-actions .del:hover{color:var(--danger);}
+  .drag-handle{cursor:grab;color:var(--text-faint);font-size:14px;flex:0 0 auto;touch-action:none;}
+  .empty-msg{color:var(--text-faint);font-size:13px;padding:16px;text-align:center;}
+
+  /* ---------------- AI 분석 섹션 ---------------- */
+  .ai-box textarea{width:100%;min-height:100px;border:1px solid var(--border-strong);border-radius:10px;padding:10px;background:var(--card-bg-soft);color:var(--text);font-size:13px;}
+  .ai-actions{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center;}
+  .ai-actions input[type=file]{font-size:12.5px;color:var(--text-soft);}
+  .ai-btn{border:none;border-radius:10px;padding:9px 16px;font-weight:800;color:#fff;font-family:var(--font-heading);background:linear-gradient(100deg,var(--sky),var(--mint));font-size:13px;box-shadow:0 3px 0 var(--mint-strong);transition:transform .1s;}
+  .ai-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--mint-strong);}
+  .ai-result{margin-top:10px;font-size:12.5px;color:var(--text-soft);background:var(--card-bg-soft);border-radius:10px;padding:10px;display:none;}
+  details.ai-details summary{cursor:pointer;font-weight:700;font-size:13px;color:var(--sky-strong);}
+
+  /* ---------------- 통계 / 하단 ---------------- */
+  .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;text-align:center;}
+  .stats-bar .stat b{display:block;font-size:19px;font-family:var(--font-heading);}
+  .stats-bar .stat span{font-size:11.5px;color:var(--text-soft);}
+
+  .export-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .export-row button{
+    border:1px solid var(--border-strong);background:var(--card-bg-soft);border-radius:10px;
+    padding:9px 13px;font-size:12.5px;font-weight:700;color:var(--text-soft);
+    font-family:var(--font-heading);
+  }
+  .export-row button:hover{border-color:var(--sky);color:var(--text);}
+
+  .back-top{
+    position:fixed;bottom:22px;right:22px;width:46px;height:46px;border-radius:50%;
+    background:linear-gradient(100deg,var(--sky),var(--mint));color:#fff;border:none;font-size:18px;
+    box-shadow:var(--shadow-lg);display:none;align-items:center;justify-content:center;z-index:60;
+  }
+  .back-top.show{display:flex;}
+
+  /* ---------------- 모달 ---------------- */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(10,20,30,.5);z-index:100;display:none;
+    align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.show{display:flex;}
+  .modal-box{
+    background:var(--card-bg);border-radius:var(--radius-lg);padding:22px;max-width:520px;width:100%;
+    max-height:80vh;overflow-y:auto;box-shadow:var(--shadow-lg);
+  }
+  .modal-box h3{font-size:17px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .history-item{
+    display:flex;align-items:center;gap:10px;padding:10px;border:1px solid var(--border);border-radius:10px;margin-bottom:8px;
+  }
+  .history-item .ht-name{font-weight:700;flex:1;}
+  .history-item .ht-meta{font-size:11.5px;color:var(--text-soft);}
+  .history-item button{border:none;background:var(--card-bg-soft);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;color:var(--text);}
+  .modal-close{float:right;border:none;background:none;font-size:18px;color:var(--text-faint);}
+
+  .toast{
+    position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
+    background:var(--text);color:var(--bg);padding:10px 20px;border-radius:30px;font-size:13.5px;font-weight:700;
+    box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:all .3s ease;z-index:200;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media (max-width:720px){
+    .dash-grid{grid-template-columns:repeat(2,1fr);}
+    .dash-card.primary{grid-column:span 2;}
+    .trip-info-grid{grid-template-columns:1fr;}
+    .stats-bar{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* ---------------- 인쇄용 한 장 요약(PDF) ---------------- */
+  #printSummary{display:none;}
+  .ps-page{
+    width:190mm;margin:0 auto;padding:10mm 10mm;
+    font-family:var(--font-main);color:#1f2d3a;position:relative;
+  }
+  .ps-border{
+    border:2px solid #3fb6e0;border-radius:16px;padding:10px 14px 12px;
+    background:linear-gradient(160deg,#f3fbfd 0%,#f0fbf7 100%);
+  }
+  .ps-header{text-align:center;margin-bottom:6px;}
+  .ps-plane{font-size:20px;}
+  .ps-title{font-size:20px;font-weight:900;letter-spacing:-.5px;margin:0 0 1px;color:#1a3f52;font-family:var(--font-heading);}
+  .ps-sub{font-size:11px;color:#4f7180;font-weight:700;}
+  .ps-legend{font-size:9px;color:#6b8a97;font-weight:700;margin-top:3px;}
+  .ps-lug{font-size:9px;flex:0 0 auto;}
+  .ps-divider{
+    border:none;border-top:2px dashed #a9dded;margin:6px 0 8px;
+  }
+  .ps-cols{column-count:3;column-gap:12px;}
+  .ps-cat{break-inside:avoid;margin-bottom:6px;}
+  .ps-cat-title{
+    font-size:10.5px;font-weight:800;color:#1a8fae;background:#dbf2fb;
+    display:inline-block;padding:1px 7px;border-radius:7px;margin-bottom:3px;
+    font-family:var(--font-heading);
+  }
+  .ps-item{font-size:9.8px;line-height:1.35;display:flex;align-items:baseline;gap:4px;}
+  .ps-box{font-size:10px;flex:0 0 auto;}
+  .ps-item.done{color:#9db0bb;text-decoration:line-through;}
+  .ps-star{color:#e8b400;font-size:9px;}
+  .ps-footer{text-align:center;margin-top:8px;font-size:10.5px;color:#5c8290;font-weight:800;font-family:var(--font-heading);}
+  @media print{
+    @page{ size:A4; margin:0; }
+    body > *:not(#printSummary){display:none !important;}
+    body{background:#fff;}
+    #printSummary{display:block !important;}
+    .ps-page{width:auto;padding:7mm;}
+  }
+</style>
+</head>
+<body>
+
+<div id="printSummary"></div>
+<div class="topbar">
+  <h1>✈️ W.A.V.E. 준비물 체크리스트</h1>
+  <select class="trip-select" id="tripSelect"></select>
+  <button class="icon-btn" id="newTripBtn">➕ 새 여행</button>
+  <button class="icon-btn" id="dupTripBtn">📋 복사</button>
+  <button class="icon-btn" id="loadSchoolDefaultsBtn">📋 기본 목록 불러오기</button>
+  <button class="icon-btn" id="historyBtn">🗂️ 기록</button>
+  <button class="icon-btn" id="resetBtn" title="저장된 모든 데이터를 지우고 초기 상태로 되돌립니다">🔄 초기화</button>
+  <button class="icon-btn" id="darkToggle">🌙</button>
+</div>
+
+<div class="wrap">
+
+  <div class="caution-wrap" id="cautionWrap"></div>
+
+  <div class="card tape-card">
+    <h2>📝 여행 정보</h2>
+    <div class="trip-info-grid">
+      <div class="field"><label>여행 제목</label><input type="text" id="tripTitle" placeholder="예: 2026 W.A.V.E 영국 프랑스"></div>
+      <div class="field"><label>여행지</label><input type="text" id="tripDest" placeholder="예: 런던"></div>
+      <div class="field"><label>출발일</label><input type="date" id="tripStart"></div>
+      <div class="field"><label>귀국일</label><input type="date" id="tripEnd"></div>
+      <div class="field full"><label>메모</label><textarea id="tripMemo" placeholder="자유롭게 메모하세요"></textarea></div>
+    </div>
+  </div>
+
+  <div class="dday-banner" id="ddayBanner">
+    <div>
+      <div class="dday-label">여행까지</div>
+      <div class="dday-num" id="ddayNum">D-?</div>
+    </div>
+    <div class="dday-sub" id="ddaySub"></div>
+  </div>
+
+  <div class="dash-grid" id="dashGrid"></div>
+
+  <div class="card" id="scheduleCard" style="display:none;">
+    <h2>👕 단체복 일정</h2>
+    <div class="schedule-scroll" id="scheduleScroll"></div>
+  </div>
+
+  <div class="card ai-box">
+    <h2 id="aiToggleHeader" style="cursor:pointer;user-select:none;">
+      <span>🤖 학교 안내문 자동 분석</span>
+      <span style="margin-left:auto;font-size:12px;color:var(--text-soft);font-weight:600;">(선택 기능)</span>
+      <span id="aiCaret" style="transition:transform .2s ease;color:var(--text-faint);">▾</span>
+    </h2>
+    <div id="aiBody" class="hidden">
+      <p style="font-size:12.5px;color:var(--text-soft);margin:-6px 0 10px;">학교 안내문 텍스트를 붙여넣거나 텍스트 파일을 업로드하면 준비물·일정·주의사항을 자동으로 인식해 반영합니다. (이미지/PDF는 내용을 텍스트로 옮겨 붙여넣어 주세요)</p>
+      <textarea id="noticeInput" placeholder="학교 안내문 내용을 여기에 붙여넣으세요. (소정 사용 ㅋㅋ 필수로 넣는 곳 아님!)"></textarea>
+      <div class="ai-actions">
+        <input type="file" id="noticeFile" accept=".txt">
+        <button class="ai-btn" id="analyzeBtn">✨ 분석하기</button>
+      </div>
+      <div class="ai-result" id="aiResult"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="준비물 검색... (ESC로 초기화)">
+      <button class="clear-x" id="clearSearch">✕</button>
+    </div>
+    <div class="chip-group" id="filterChips">
+      <button class="chip active" data-filter="all">전체</button>
+      <button class="chip" data-filter="pending">준비 중</button>
+      <button class="chip" data-filter="done">준비 완료</button>
+      <button class="chip" data-filter="school">⭐ 학교 필수</button>
+    </div>
+    <div class="chip-group" id="luggageChips">
+      <button class="chip active" data-lug="all">🧺 전체</button>
+      <button class="chip" data-lug="checked">🧳 수화물</button>
+      <button class="chip" data-lug="carryon">🎒 보조가방</button>
+    </div>
+    <select class="sort-select" id="sortSelect">
+      <option value="order">추가순</option>
+      <option value="name">이름순</option>
+      <option value="category">카테고리순</option>
+      <option value="done">완료순</option>
+    </select>
+  </div>
+
+  <div class="bulk-row">
+    <button class="bulk-btn" id="checkAllBtn">✅ 전체 체크</button>
+    <button class="bulk-btn" id="uncheckAllBtn">⬜ 전체 해제</button>
+    <button class="bulk-btn danger" id="delDoneBtn">🗑️ 완료 삭제</button>
+    <button class="bulk-btn danger" id="delAllBtn">💣 전체 삭제</button>
+  </div>
+
+  <form class="add-form" id="addForm">
+    <input type="text" id="newItemName" placeholder="준비물 이름 입력 후 Enter" required>
+    <select id="newItemCategory"></select>
+    <select id="newItemLuggage">
+      <option value="both">🔄 둘다준비</option>
+      <option value="checked">🧳 수화물</option>
+      <option value="carryon">🎒 보조가방</option>
+    </select>
+    <label class="chk"><input type="checkbox" id="newItemSchool"> ⭐ 학교필수</label>
+    <button type="submit">추가</button>
+  </form>
+
+  <div id="categoriesContainer"></div>
+
+  <div class="card">
+    <h2>📊 통계</h2>
+    <div class="stats-bar" id="statsBar"></div>
+    <div class="export-row">
+      <button id="printBtn">🖨️ 인쇄 / PDF</button>
+      <button id="csvBtn">📥 CSV 다운로드</button>
+    </div>
+  </div>
+
+</div>
+
+<button class="back-top" id="backTop">↑</button>
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="historyModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeHistory">✕</button>
+    <h3>🗂️ 여행 히스토리</h3>
+    <div id="historyList"></div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   ✈️ 여행 준비물 체크리스트 — Vanilla JS, 단일 파일, LocalStorage 기반
+   ===================================================================== */
+
+/* ---------- 상수 정의 ---------- */
+const STORAGE_KEY = 'travelChecklistApp_v6';
+
+const CATEGORIES = [
+  { id:'doc',  icon:'📄', name:'중요' },
+  { id:'device', icon:'📱', name:'전자기기' },
+  { id:'clothes',icon:'👕', name:'의류' },
+  { id:'shoes',  icon:'👟', name:'신발' },
+  { id:'toilet', icon:'🪥', name:'세면도구' },
+  { id:'medic',  icon:'💊', name:'의약품 & 영양제' },
+  { id:'snack',  icon:'🍪', name:'간식' },
+  { id:'etc',    icon:'🎒', name:'기타' }
+];
+
+const LUGGAGE_LABEL = { checked:'🧳 수화물', carryon:'🎒 보조가방', both:'🔄 둘다챙기기' };
+
+// 기본 준비물: 학교 필수 목록 + 처음 제공된 일반 준비물 목록을 병합 (완전 동일 이름만 중복 제거)
+// [카테고리, 이름, 짐구분, 학교필수여부]
+const DEFAULT_ITEMS = [
+// 🧳 수화물 캐리어 / 🎒 기내용 가방 - 학교 필수 목록 (⭐ school=true)
+  ['clothes','학교 생활복 상의 2벌','checked',true],
+  ['clothes','학교 생활복 하의(반바지) 2벌','checked',true],
+  ['clothes','WAVE 단체티 6벌','checked',true],
+  ['clothes','일반 반바지 3벌(지유는 4벌)','checked',true],
+  ['clothes','속옷(8박 10일, 지유는 팬티 10개)','checked',true],
+  ['clothes','양말(8박 10일, 지유는 10개)','checked',true],
+  ['clothes','잠옷(지유는 2벌)','checked',true],
+  ['clothes','겉옷(바람막이 1벌)','checked',true],
+  ['toilet','수건 1개(지유는 2개)','checked',true],
+  ['toilet','칫솔','checked',true],
+  ['toilet','치약','checked',true],
+  ['toilet','선크림','checked',true],
+  ['toilet','로션','checked',true],
+  ['shoes','슬리퍼(크록스 가능)','checked',true],
+  ['medic','개인 복용약','checked',true],
+  ['medic','멀미약(필요 시)','checked',true],
+  ['medic','모기약','checked',true],
+  ['etc','학교 모자','checked',true],
+  ['etc','검정 비닐봉지(2~3매)','checked',true],
+  ['etc','세탁망','checked',true],
+  ['etc','캐리어 키링(리본으로 고정)','checked',true],
+  ['etc','일회용 우비 2개','checked',true],
+  ['device','휴대폰','carryon',true],
+  ['device','보조배터리(지유는 2개)','carryon',true],
+  ['device','유럽용 멀티어댑터','checked',true],
+  ['device','손목시계/알람시계','checked',true],
+  ['device','충전기','carryon',true],
+  ['device','충전 케이블','carryon',true],
+  ['doc','여권(학교제출)','carryon',true],
+  ['doc','학생증','carryon',true],
+  ['toilet','마스크','carryon',true],
+  ['toilet','티슈','both',true],
+  ['toilet','물티슈','both',true],
+  ['etc','이어폰','carryon',true],
+  ['etc','필기구','carryon',true],
+  ['etc','메모수첩','carryon',true],
+  ['etc','선글라스(선택)','carryon',true],
+  ['snack','간식(젤리, 포장스낵)','checked',true],
+  ['etc','접의식 우산','checked',true],
+  // ---- 처음 기본으로 제공된 일반 준비물 목록 (school=false) ----
+  ['doc','지갑','carryon',false],
+  ['doc','체크카드','carryon',false],
+  ['doc','현금','carryon',false],
+  ['clothes','러닝 (지유는 6개)','checked',true],
+  ['clothes','손수건 2개','checked',false],  
+  ['shoes','운동화(여분)','checked',false],
+  ['toilet','샴푸','checked',false],
+  ['toilet','린스','checked',false],
+  ['toilet','바디워시','checked',false],
+  ['toilet','페이스워시','checked',false],
+  ['toilet','바디로션','checked',false],
+  ['toilet','빗','checked',false],
+  ['toilet','머리 고무줄','checked',false],  
+  ['toilet','머리띠','checked',false],  
+  ['toilet','손소독티슈','both',false],  
+  ['medic','해열제 2종류','checked',false],
+  ['medic','소화제(배나치오, 매실)','both',false],
+  ['medic','챔프 알러논','both',false],
+  ['medic','밴드','checked',false],
+  ['medic','챔큐','checked',false],
+  ['medic','유산균','checked',false],
+  ['medic','비타민C','checked',false],
+  ['medic','장생천시럽','checked',false],
+  ['medic','ORS 수분보충제','checked',false],  
+  ['medic','휴족시간','checked',false],    
+  ['snack','물(6병)','carryon',false],
+  ['etc','선글라스','carryon',false],
+  ['etc','장바구니','checked',false],
+  ['etc','목베개','carryon',false],
+  ['etc','배게커버(일회용)','carryon',false], 
+  ['etc','지퍼백','checked',false],
+  ['etc','안대','checked',false],  
+  ['etc','텀블러','checked',false],  
+  ['etc','텀블러세척제','checked',false],  
+  ['etc','진드기 패드','checked',false],    
+  ['device','손선풍기 2개','carryon',true], 
+  ['device','미니 드라이기','carryon',true],   
+];
+
+/* ---------- 유틸 ---------- */
+const $ = (sel,root=document)=>root.querySelector(sel);
+const $$ = (sel,root=document)=>Array.from(root.querySelectorAll(sel));
+const uid = ()=> 'id_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8);
+
+function showToast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(showToast._tm);
+  showToast._tm = setTimeout(()=>t.classList.remove('show'), 1800);
+}
+
+/* ---------- 상태 저장 구조 ----------
+state = {
+  darkMode: bool,
+  currentTripId: string,
+  trips: { [id]: tripObj },
+  history: [tripObj...]   // 완료되어 보관된 여행들
+}
+tripObj = {
+  id, title, destination, startDate, endDate, memo,
+  status: 'planning'|'ongoing'|'completed',
+  items: [{id,name,category,luggage,school,done,order,createdAt}],
+  schedule: [{date,location,label}],
+  cautions: [string],
+  ui: {filter:'all', luggage:'all', search:'', sort:'order', collapsed:{}}
+}
+------------------------------------ */
+
+let state = loadState();
+
+/* 일부 모바일 브라우저(카카오톡/인스타그램 인앱브라우저, 사파리 프라이빗 모드 등)는
+   localStorage 접근이 막혀 있어 그대로 두면 스크립트가 중간에 멈춰버린다.
+   그래서 실패 시 메모리(변수)에만 저장하는 방식으로 자동 전환해 앱은 항상 동작하게 한다. */
+let storageAvailable = true;
+let memoryFallback = null;
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      if(parsed && parsed.trips) return parsed;
+    }
+  }catch(e){
+    console.warn('localStorage 사용 불가, 메모리 모드로 전환:', e);
+    storageAvailable = false;
+  }
+  return null;
+}
+
+function saveState(){
+  if(storageAvailable){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      return;
+    }catch(e){
+      console.warn('localStorage 저장 실패, 메모리 모드로 전환:', e);
+      storageAvailable = false;
+    }
+  }
+  // localStorage를 쓸 수 없는 환경: 메모리에만 보관 (새로고침 시 초기화됨)
+  memoryFallback = state;
+}
+
+function makeDefaultTrip(title){
+  const t = {
+    id: uid(),
+    title: title || '2026 W.A.V.E.',
+    destination: '런던, 파리',
+    startDate: '2026-07-28',
+    endDate: '2026-08-04',
+    memo: '',
+    status: 'planning',
+    items: DEFAULT_ITEMS.map((d,i)=>({
+      id: uid(), name:d[1], category:d[0], luggage:d[2],
+      school: d[3]===true, done:false, order:i, createdAt: Date.now()+i
+    })),
+    schedule: [],
+    cautions: [],
+    ui: { filter:'all', luggage:'all', search:'', sort:'order', collapsed:{} }
+  };
+  return t;
+}
+
+if(!state){
+  const trip = makeDefaultTrip('2026 W.A.V.E.');
+  state = { darkMode:false, currentTripId: trip.id, trips:{ [trip.id]: trip }, history:[] };
+  saveState();
+}
+
+function currentTrip(){ return state.trips[state.currentTripId]; }
+
+/* ---------- 다크모드 ---------- */
+function applyTheme(){
+  document.documentElement.setAttribute('data-theme', state.darkMode ? 'dark' : 'light');
+  $('#darkToggle').textContent = state.darkMode ? '☀️' : '🌙';
+}
+$('#darkToggle').addEventListener('click', ()=>{
+  state.darkMode = !state.darkMode;
+  saveState(); applyTheme();
+});
+
+/* ---------- 여행 선택/생성/복사/기록 ---------- */
+function renderTripSelect(){
+  const sel = $('#tripSelect');
+  sel.innerHTML = Object.values(state.trips).map(t=>
+    `<option value="${t.id}" ${t.id===state.currentTripId?'selected':''}>${escapeHtml(t.title||'제목없음')}</option>`
+  ).join('');
+}
+$('#tripSelect').addEventListener('change', e=>{
+  state.currentTripId = e.target.value;
+  saveState(); renderAll();
+});
+$('#newTripBtn').addEventListener('click', ()=>{
+  const name = prompt('새 여행 이름을 입력하세요', '새로운 여행');
+  if(name===null) return;
+  const t = makeDefaultTrip(name || '새로운 여행');
+  state.trips[t.id] = t;
+  state.currentTripId = t.id;
+  saveState(); renderAll();
+  showToast('새 여행이 생성되었습니다 ✈️');
+});
+$('#dupTripBtn').addEventListener('click', ()=>{
+  const src = currentTrip();
+  const copy = JSON.parse(JSON.stringify(src));
+  copy.id = uid();
+  copy.title = src.title + ' (복사본)';
+  copy.items = copy.items.map(it=>({...it, id:uid(), done:false}));
+  state.trips[copy.id] = copy;
+  state.currentTripId = copy.id;
+  saveState(); renderAll();
+  showToast('여행이 복사되었습니다 📋');
+});
+$('#historyBtn').addEventListener('click', ()=>{
+  renderHistory();
+  $('#historyModal').classList.add('show');
+});
+
+/* ---------- 전체 초기화: 저장된 데이터를 완전히 삭제하고 처음 상태로 되돌림 ---------- */
+$('#resetBtn').addEventListener('click', ()=>{
+  const ok = confirm('⚠️ 저장된 모든 여행 데이터(체크리스트, 히스토리 포함)를 삭제하고\n초기 기본 상태로 되돌립니다.\n이 작업은 되돌릴 수 없습니다. 계속할까요?');
+  if(!ok) return;
+  try{ localStorage.removeItem(STORAGE_KEY); }catch(e){ console.warn('초기화 중 localStorage 접근 실패:', e); }
+  location.reload();
+});
+
+/* ---------- 학교 필수 목록(DEFAULT_ITEMS)을 현재 여행에 병합 ---------- */
+// 현재 여행 상태와 무관하게 언제든 눌러서 학교 필수 목록을 추가/갱신할 수 있게 함
+function mergeSchoolDefaultsIntoCurrentTrip(){
+  const t = currentTrip();
+  let added = 0, updated = 0;
+  DEFAULT_ITEMS.forEach(d=>{
+    const [category,name,luggage,school] = d;
+    const dup = t.items.find(i=>i.name===name);
+    if(dup){
+      let changed = false;
+      if(!dup.school && school){ dup.school = true; changed = true; }
+      if(dup.luggage !== luggage){ dup.luggage = luggage; changed = true; }
+      if(changed) updated++;
+    }else{
+      const maxOrder = t.items.reduce((m,i)=>Math.max(m,i.order),0);
+      t.items.push({
+        id: uid(), name, category, luggage, school: !!school,
+        done:false, order:maxOrder+1, createdAt: Date.now()
+      });
+      added++;
+    }
+  });
+  saveState();
+  renderAll();
+  showToast(`학교 필수 목록 반영 완료 (신규 ${added}개, 갱신 ${updated}개) ⭐`);
+}
+$('#loadSchoolDefaultsBtn').addEventListener('click', ()=>{
+  if(confirm('학교 필수 목록 + 처음 기본 준비물 목록을 현재 여행에 불러올까요?\n이미 있는 항목은 학교필수/짐구분만 업데이트되고, 없는 항목은 새로 추가됩니다.')){
+    mergeSchoolDefaultsIntoCurrentTrip();
+  }
+});
+$('#closeHistory').addEventListener('click', ()=> $('#historyModal').classList.remove('show'));
+$('#historyModal').addEventListener('click', e=>{ if(e.target===$('#historyModal')) $('#historyModal').classList.remove('show'); });
+
+function renderHistory(){
+  const list = $('#historyList');
+  // 완료 상태인 trips 도 히스토리로 취급, 저장된 history 배열과 합쳐 표시
+  const completedTrips = Object.values(state.trips).filter(t=>t.status==='completed');
+  const all = [...state.history, ...completedTrips];
+  if(all.length===0){
+    list.innerHTML = '<div class="empty-msg">아직 보관된 여행 기록이 없습니다. 여행 상태가 "완료"가 되면 이곳에 표시됩니다.</div>';
+    return;
+  }
+  list.innerHTML = all.map(t=>{
+    const done = t.items.filter(i=>i.done).length;
+    return `<div class="history-item">
+      <div>
+        <div class="ht-name">${escapeHtml(t.title)}</div>
+        <div class="ht-meta">${escapeHtml(t.destination||'')} · ${done}/${t.items.length} 완료</div>
+      </div>
+      <button onclick="loadFromHistory('${t.id}')">불러오기</button>
+    </div>`;
+  }).join('');
+}
+window.loadFromHistory = function(id){
+  const found = state.history.find(t=>t.id===id) || state.trips[id];
+  if(!found) return;
+  if(!state.trips[id]) state.trips[id] = JSON.parse(JSON.stringify(found));
+  state.currentTripId = id;
+  saveState(); renderAll();
+  $('#historyModal').classList.remove('show');
+};
+
+/* ---------- 여행 정보 카드 (자동 저장) ---------- */
+function bindTripInfoInputs(){
+  const map = { tripTitle:'title', tripDest:'destination', tripStart:'startDate', tripEnd:'endDate', tripMemo:'memo' };
+  Object.entries(map).forEach(([elId,key])=>{
+    $('#'+elId).addEventListener('input', e=>{
+      currentTrip()[key] = e.target.value;
+      saveState();
+      renderDday(); renderDashboard();
+      if(elId==='tripTitle') renderTripSelect();
+    });
+  });
+}
+function renderTripInfo(){
+  const t = currentTrip();
+  $('#tripTitle').value = t.title || '';
+  $('#tripDest').value = t.destination || '';
+  $('#tripStart').value = t.startDate || '';
+  $('#tripEnd').value = t.endDate || '';
+  $('#tripMemo').value = t.memo || '';
+}
+
+/* ---------- D-Day ---------- */
+function renderDday(){
+  const t = currentTrip();
+  const numEl = $('#ddayNum'), subEl = $('#ddaySub');
+  if(!t.startDate){ numEl.textContent='D-?'; subEl.textContent='출발일을 입력해주세요'; return; }
+  const today = new Date(); today.setHours(0,0,0,0);
+  const start = new Date(t.startDate); start.setHours(0,0,0,0);
+  const end = t.endDate ? new Date(t.endDate) : start;
+  end.setHours(0,0,0,0);
+  const diffStart = Math.round((start-today)/86400000);
+  const diffEnd = Math.round((end-today)/86400000);
+
+  if(diffStart>0){ numEl.textContent = `D-${diffStart}`; subEl.textContent='출발까지 남은 일수'; t.status='planning'; }
+  else if(diffStart===0){ numEl.textContent='D-DAY'; subEl.textContent='오늘 출발! 🎉'; t.status='ongoing'; }
+  else if(diffEnd>=0){ numEl.textContent='여행 중'; subEl.textContent=`귀국까지 ${diffEnd}일`; t.status='ongoing'; }
+  else { numEl.textContent='여행 완료'; subEl.textContent='즐거운 추억 되셨나요? 😊'; t.status='completed'; }
+}
+
+/* ---------- 대시보드 ---------- */
+function renderDashboard(){
+  const t = currentTrip();
+  const total = t.items.length;
+  const done = t.items.filter(i=>i.done).length;
+  const remain = total-done;
+  const pct = total ? Math.round(done/total*100) : 0;
+  const checkedCnt = t.items.filter(i=>i.luggage==='checked').length;
+  const carryonCnt = t.items.filter(i=>i.luggage==='carryon').length;
+
+  $('#dashGrid').innerHTML = `
+    <div class="dash-card primary">
+      <div class="progress-row"><span>여행 준비 현황</span><span class="pct">${pct}%</span></div>
+      <div class="progress-outer"><div class="progress-inner" style="width:${pct}%"></div></div>
+      <div style="margin-top:8px;font-size:13px;color:var(--text-soft);font-weight:700;">${done} / ${total} 완료</div>
+    </div>
+    <div class="dash-card"><div class="num">${total}</div><div class="lbl">전체 준비물</div></div>
+    <div class="dash-card"><div class="num">${done}</div><div class="lbl">완료 개수</div></div>
+    <div class="dash-card"><div class="num">${remain}</div><div class="lbl">남은 개수</div></div>
+    <div class="dash-card"><div class="num">${checkedCnt}</div><div class="lbl">🧳 수화물</div></div>
+  `;
+  // 기내용 카드 추가 (grid 4열 유지 위해 별도 처리)
+  $('#dashGrid').innerHTML += `<div class="dash-card"><div class="num">${carryonCnt}</div><div class="lbl">🎒 보조가방</div></div>`;
+}
+
+/* ---------- 주의사항 카드 ---------- */
+function renderCautions(){
+  const t = currentTrip();
+  const wrap = $('#cautionWrap');
+  if(!t.cautions || t.cautions.length===0){ wrap.innerHTML=''; return; }
+  wrap.innerHTML = t.cautions.map((c,i)=>`
+    <div class="caution-card">⭐ ${escapeHtml(c)}
+      <button class="del-caution" data-idx="${i}" title="삭제">✕</button>
+    </div>`).join('');
+  $$('.del-caution', wrap).forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      t.cautions.splice(+btn.dataset.idx,1);
+      saveState(); renderCautions();
+    });
+  });
+}
+
+/* ---------- 단체복 일정표 ---------- */
+function renderSchedule(){
+  const t = currentTrip();
+  const card = $('#scheduleCard');
+  if(!t.schedule || t.schedule.length===0){ card.style.display='none'; return; }
+  card.style.display='block';
+  $('#scheduleScroll').innerHTML = t.schedule.map(s=>`
+    <div class="schedule-card">
+      <div class="date">${escapeHtml(s.date||'')}</div>
+      <div class="loc">${escapeHtml(s.location||'')}</div>
+      <div class="items">${escapeHtml(s.label||'')}</div>
+    </div>`).join('');
+}
+
+/* ---------- 카테고리 select 채우기 ---------- */
+function fillCategorySelect(){
+  $('#newItemCategory').innerHTML = CATEGORIES.map(c=>`<option value="${c.id}">${c.icon} ${c.name}</option>`).join('');
+}
+
+/* ---------- 필터/정렬/검색 적용 ---------- */
+function getFilteredSortedItems(){
+  const t = currentTrip();
+  let items = [...t.items];
+  const ui = t.ui;
+  if(ui.search && ui.search.trim()){
+    const q = ui.search.trim().toLowerCase();
+    items = items.filter(i=>i.name.toLowerCase().includes(q));
+  }
+  if(ui.filter==='pending') items = items.filter(i=>!i.done);
+  else if(ui.filter==='done') items = items.filter(i=>i.done);
+  else if(ui.filter==='school') items = items.filter(i=>i.school);
+
+  if(ui.luggage!=='all') items = items.filter(i=>i.luggage===ui.luggage);
+
+  if(ui.sort==='name') items.sort((a,b)=>a.name.localeCompare(b.name,'ko'));
+  else if(ui.sort==='category') items.sort((a,b)=>CATEGORIES.findIndex(c=>c.id===a.category)-CATEGORIES.findIndex(c=>c.id===b.category));
+  else if(ui.sort==='done') items.sort((a,b)=>(a.done===b.done)?0:(a.done?1:-1));
+  else items.sort((a,b)=>a.order-b.order);
+
+  return items;
+}
+
+/* ---------- 카테고리별 렌더링 ---------- */
+function renderCategories(){
+  const t = currentTrip();
+  const items = getFilteredSortedItems();
+  const container = $('#categoriesContainer');
+  container.innerHTML='';
+
+  // 카테고리는 그대로 유지하고, 학교 필수 여부는 각 항목의 ⭐ 배지로만 표시
+  CATEGORIES.forEach(cat=>{
+    const list = items.filter(i=>i.category===cat.id);
+    if(list.length===0 && (t.ui.search || t.ui.filter!=='all' || t.ui.luggage!=='all')) return; // 필터 결과 없으면 숨김
+    container.appendChild(buildCategoryBlock(cat.id, cat.icon, cat.name, list));
+  });
+
+  if(container.innerHTML===''){
+    container.innerHTML = '<div class="empty-msg">해당 조건의 준비물이 없습니다 🔍</div>';
+  }
+}
+
+function buildCategoryBlock(catId, icon, name, list){
+  const t = currentTrip();
+  const doneCnt = list.filter(i=>i.done).length;
+  const collapsed = !!t.ui.collapsed[catId];
+
+  const wrap = document.createElement('div');
+  wrap.className='category-group';
+  wrap.innerHTML = `
+    <div class="category-header ${collapsed?'collapsed':''}" data-cat="${catId}">
+      <span>${icon} ${escapeHtml(name)}</span>
+      <span class="count">${doneCnt} / ${list.length}</span>
+      <span class="caret">▾</span>
+    </div>
+    <div class="category-body ${collapsed?'hidden':''}" data-catbody="${catId}"></div>
+  `;
+  const body = $('[data-catbody="'+catId+'"]', wrap);
+  if(list.length===0){
+    body.innerHTML = '<div class="empty-msg">아직 준비물이 없습니다</div>';
+  }else{
+    list.forEach(item=> body.appendChild(buildItemRow(item)));
+  }
+
+  $('.category-header', wrap).addEventListener('click', ()=>{
+    t.ui.collapsed[catId] = !t.ui.collapsed[catId];
+    saveState(); renderCategories();
+  });
+
+  // 드래그앤드롭 컨테이너 바인딩 (카테고리 내부만)
+  enableDragDrop(body, catId);
+
+  return wrap;
+}
+
+function buildItemRow(item){
+  const row = document.createElement('div');
+  row.className = 'item-row' + (item.done ? ' done':'');
+  row.draggable = true;
+  row.dataset.id = item.id;
+
+  const catInfo = CATEGORIES.find(c=>c.id===item.category);
+  row.innerHTML = `
+    <span class="drag-handle">⠿</span>
+    <div class="item-check ${item.done?'done':''}" data-act="toggle">${item.done?'✓':''}</div>
+    <span class="item-name" data-act="viewname">${escapeHtml(item.name)}</span>
+    ${item.school ? '<span class="badge school">⭐ 학교필수</span>' : ''}
+    <span class="badge luggage">${LUGGAGE_LABEL[item.luggage]||''}</span>
+    <div class="row-actions">
+      <button data-act="edit" title="수정">✏️</button>
+      <button class="del" data-act="delete" title="삭제">🗑️</button>
+    </div>
+  `;
+
+  row.querySelector('[data-act="toggle"]').addEventListener('click', ()=>toggleItem(item.id));
+  row.querySelector('[data-act="edit"]').addEventListener('click', ()=>startEditItem(row,item));
+  row.querySelector('[data-act="delete"]').addEventListener('click', ()=>deleteItem(item.id));
+  row.querySelector('[data-act="viewname"]').addEventListener('dblclick', ()=>startEditItem(row,item));
+
+  return row;
+}
+
+function startEditItem(row,item){
+  const nameSpan = row.querySelector('[data-act="viewname"]');
+  const input = document.createElement('input');
+  input.type='text'; input.className='item-name-input'; input.value=item.name;
+  nameSpan.replaceWith(input);
+  input.focus(); input.select();
+
+  function commit(save){
+    if(save){
+      const val = input.value.trim();
+      if(val) item.name = val;
+    }
+    saveState(); renderCategories();
+  }
+  input.addEventListener('keydown', e=>{
+    if(e.key==='Enter'){ e.preventDefault(); commit(true); }
+    else if(e.key==='Escape'){ e.preventDefault(); commit(false); }
+  });
+  input.addEventListener('blur', ()=>commit(true));
+}
+
+function toggleItem(id){
+  const t = currentTrip();
+  const item = t.items.find(i=>i.id===id);
+  if(!item) return;
+  item.done = !item.done;
+  saveState();
+  renderCategories(); renderDashboard(); renderStats();
+}
+function deleteItem(id){
+  if(!confirm('이 준비물을 삭제할까요?')) return;
+  const t = currentTrip();
+  t.items = t.items.filter(i=>i.id!==id);
+  saveState();
+  renderCategories(); renderDashboard(); renderStats();
+}
+
+/* ---------- 준비물 추가 ---------- */
+$('#addForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const nameInput = $('#newItemName');
+  const name = nameInput.value.trim();
+  if(!name){ showToast('준비물 이름을 입력해주세요'); return; }
+  const t = currentTrip();
+  const maxOrder = t.items.reduce((m,i)=>Math.max(m,i.order),0);
+  t.items.push({
+    id: uid(), name, category: $('#newItemCategory').value,
+    luggage: $('#newItemLuggage').value, school: $('#newItemSchool').checked,
+    done:false, order:maxOrder+1, createdAt: Date.now()
+  });
+  saveState();
+  nameInput.value=''; $('#newItemSchool').checked=false;
+  nameInput.focus();
+  renderCategories(); renderDashboard(); renderStats();
+  showToast('준비물이 추가되었습니다 ✅');
+});
+
+/* ---------- 검색 ---------- */
+const searchInput = $('#searchInput');
+searchInput.addEventListener('input', e=>{
+  currentTrip().ui.search = e.target.value;
+  $('#clearSearch').style.display = e.target.value ? 'block':'none';
+  saveState(); renderCategories();
+});
+searchInput.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ searchInput.value=''; currentTrip().ui.search=''; $('#clearSearch').style.display='none'; saveState(); renderCategories(); }
+});
+$('#clearSearch').addEventListener('click', ()=>{
+  searchInput.value=''; currentTrip().ui.search=''; $('#clearSearch').style.display='none';
+  saveState(); renderCategories(); searchInput.focus();
+});
+
+/* ---------- 필터 칩 ---------- */
+$('#filterChips').addEventListener('click', e=>{
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  $$('.chip', $('#filterChips')).forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  currentTrip().ui.filter = btn.dataset.filter;
+  saveState(); renderCategories();
+});
+$('#luggageChips').addEventListener('click', e=>{
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  $$('.chip', $('#luggageChips')).forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  currentTrip().ui.luggage = btn.dataset.lug;
+  saveState(); renderCategories();
+});
+$('#sortSelect').addEventListener('change', e=>{
+  currentTrip().ui.sort = e.target.value;
+  saveState(); renderCategories();
+});
+
+/* ---------- 일괄 작업 ---------- */
+$('#checkAllBtn').addEventListener('click', ()=>{
+  currentTrip().items.forEach(i=>i.done=true);
+  saveState(); renderCategories(); renderDashboard(); renderStats();
+  showToast('전체 체크 완료 ✅');
+});
+$('#uncheckAllBtn').addEventListener('click', ()=>{
+  currentTrip().items.forEach(i=>i.done=false);
+  saveState(); renderCategories(); renderDashboard(); renderStats();
+});
+$('#delDoneBtn').addEventListener('click', ()=>{
+  if(!confirm('완료된 준비물을 모두 삭제할까요?')) return;
+  const t = currentTrip();
+  t.items = t.items.filter(i=>!i.done);
+  saveState(); renderCategories(); renderDashboard(); renderStats();
+});
+$('#delAllBtn').addEventListener('click', ()=>{
+  if(!confirm('전체 준비물을 삭제할까요? 이 작업은 되돌릴 수 없습니다.')) return;
+  currentTrip().items = [];
+  saveState(); renderCategories(); renderDashboard(); renderStats();
+});
+
+/* ---------- 드래그 앤 드롭 (마우스 + 터치) ---------- */
+function enableDragDrop(container, catId){
+  let dragEl = null;
+
+  container.addEventListener('dragstart', e=>{
+    const row = e.target.closest('.item-row'); if(!row) return;
+    dragEl = row; row.classList.add('dragging');
+  });
+  container.addEventListener('dragend', ()=>{
+    if(dragEl) dragEl.classList.remove('dragging');
+    dragEl=null;
+    persistOrder(container, catId);
+  });
+  container.addEventListener('dragover', e=>{
+    e.preventDefault();
+    const after = getRowAfter(container, e.clientY);
+    if(!dragEl) return;
+    if(after==null) container.appendChild(dragEl);
+    else container.insertBefore(dragEl, after);
+  });
+
+  // 터치 지원 (간단한 롱프레스 + 이동 방식)
+  let touchDragEl=null, touchStartY=0;
+  container.addEventListener('touchstart', e=>{
+    const handle = e.target.closest('.drag-handle'); if(!handle) return;
+    const row = e.target.closest('.item-row');
+    touchDragEl = row; touchStartY = e.touches[0].clientY;
+    row.classList.add('dragging');
+  }, {passive:true});
+  container.addEventListener('touchmove', e=>{
+    if(!touchDragEl) return;
+    const y = e.touches[0].clientY;
+    const after = getRowAfter(container, y);
+    if(after==null) container.appendChild(touchDragEl);
+    else container.insertBefore(touchDragEl, after);
+  }, {passive:true});
+  container.addEventListener('touchend', ()=>{
+    if(touchDragEl) touchDragEl.classList.remove('dragging');
+    touchDragEl=null;
+    persistOrder(container, catId);
+  });
+}
+function getRowAfter(container, y){
+  const rows = [...container.querySelectorAll('.item-row:not(.dragging)')];
+  return rows.reduce((closest,row)=>{
+    const box = row.getBoundingClientRect();
+    const offset = y - box.top - box.height/2;
+    if(offset<0 && offset>closest.offset) return {offset,element:row};
+    return closest;
+  }, {offset:-Infinity,element:null}).element;
+}
+function persistOrder(container){
+  const t = currentTrip();
+  const ids = [...container.querySelectorAll('.item-row')].map(r=>r.dataset.id);
+  ids.forEach((id,idx)=>{
+    const item = t.items.find(i=>i.id===id);
+    if(item) item.order = idx + (Math.random()*0.0001); // 카테고리 내 상대 순서만 조정
+  });
+  saveState();
+}
+
+/* ---------- 통계 ---------- */
+function renderStats(){
+  const t = currentTrip();
+  const total = t.items.length, done = t.items.filter(i=>i.done).length;
+  const remain = total-done, pct = total? Math.round(done/total*100):0;
+  $('#statsBar').innerHTML = `
+    <div class="stat"><b>${total}</b><span>전체 준비물</span></div>
+    <div class="stat"><b style="color:var(--success)">${done}</b><span>완료</span></div>
+    <div class="stat"><b style="color:var(--danger)">${remain}</b><span>남음</span></div>
+    <div class="stat"><b style="color:var(--sky-strong)">${pct}%</b><span>완료율</span></div>
+  `;
+}
+
+/* ---------- 인쇄 / CSV ---------- */
+/* ---------- 인쇄용 한 장 요약(PDF) 생성 ---------- */
+const PS_LUGGAGE_ICON = { checked:'🧳', carryon:'🎒', both:'🔄' };
+
+function buildPrintSummary(){
+  const t = currentTrip();
+  const dateRange = (t.startDate||t.endDate)
+    ? `${(t.startDate||'').replace(/-/g,'.')} ~ ${(t.endDate||'').replace(/-/g,'.')}`
+    : '';
+  const subParts = [t.destination, dateRange].filter(Boolean);
+
+  const catsHtml = CATEGORIES.map(cat=>{
+    const list = t.items.filter(i=>i.category===cat.id);
+    if(list.length===0) return '';
+    const itemsHtml = list.map(i=>`
+      <div class="ps-item ${i.done?'done':''}">
+        <span class="ps-box">${i.done?'☑':'☐'}</span>
+        <span class="ps-lug">${PS_LUGGAGE_ICON[i.luggage]||''}</span>
+        <span>${escapeHtml(i.name)}${i.school?' <span class="ps-star">⭐</span>':''}</span>
+      </div>`).join('');
+    return `<div class="ps-cat">
+      <div class="ps-cat-title">${cat.icon} ${escapeHtml(cat.name)}</div>
+      ${itemsHtml}
+    </div>`;
+  }).join('');
+
+  $('#printSummary').innerHTML = `
+    <div class="ps-page">
+      <div class="ps-border">
+        <div class="ps-header">
+          <div class="ps-plane">✈️ 🧳 ⛅</div>
+          <div class="ps-title">${escapeHtml(t.title||'여행 준비물 체크리스트')}</div>
+          ${subParts.length ? `<div class="ps-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
+          <div class="ps-legend">🧳 수화물 캐리어 &nbsp;·&nbsp; 🎒 보조가방(기내용) &nbsp;·&nbsp; 🔄 둘다챙기기</div>
+        </div>
+        <hr class="ps-divider">
+        <div class="ps-cols">${catsHtml}</div>
+        <div class="ps-footer">✈️ Let's Go! Go! ✈️</div>
+      </div>
+    </div>
+  `;
+}
+$('#printBtn').addEventListener('click', ()=>{
+  buildPrintSummary();
+  // 브라우저가 새 내용을 렌더링할 시간을 살짝 준 뒤 인쇄
+  setTimeout(()=> window.print(), 50);
+});
+$('#csvBtn').addEventListener('click', ()=>{
+  const t = currentTrip();
+  const header = ['이름','카테고리','짐구분','학교필수','완료여부'];
+  const rows = t.items.map(i=>{
+    const cat = CATEGORIES.find(c=>c.id===i.category);
+    return [i.name, cat?cat.name:i.category, LUGGAGE_LABEL[i.luggage]||'', i.school?'Y':'N', i.done?'완료':'미완료'];
+  });
+  const csv = [header, ...rows].map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download = `${t.title||'checklist'}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(url);
+  showToast('CSV 파일이 다운로드되었습니다 📥');
+});
+
+/* ---------- 학교 안내문 분석 (규칙 기반 파서) ---------- */
+const CATEGORY_KEYWORDS = {
+  doc:   ['여권','항공권','티켓','비자','서류','보험','확인서','지갑','카드','현금','환전','달러','엔화','유로','학생증'],
+  device:['휴대폰','폰','충전','배터리','이어폰','카메라','어댑터','전자'],
+  clothes:['티','바지','옷','양말','속옷','팬티','잠옷','생활복','교복','단체복','겉옷','모자','러닝'],
+  shoes: ['신발','운동화','슬리퍼','샌들'],
+  toilet:['칫솔','치약','샴푸','린스','바디워시','수건','빗','세면','선크림','로션'],
+  medic: ['약','해열제','소화제','밴드','멀미','유산균','비타민','알러논','상비약'],
+  snack: ['간식','물','과자','음료'],
+  etc:   ['선글라스','우산','우비','장바구니','목베개','세탁망','지퍼백','비닐']
+};
+function classifyCategory(name){
+  for(const [cat,keys] of Object.entries(CATEGORY_KEYWORDS)){
+    if(keys.some(k=>name.includes(k))) return cat;
+  }
+  return 'etc';
+}
+function classifyLuggage(text){
+  if(/기내|손짐|휴대/.test(text)) return 'carryon';
+  if(/수화물|캐리어|위탁/.test(text)) return 'checked';
+  return 'both';
+}
+function isCautionLine(line){
+  return /(금지|부착|복용|반입|보관|넣어|넣기|필수로|주의|100ml|착용)/.test(line);
+}
+function isScheduleLine(line){
+  return /\d{1,2}\s?[\/\.월]\s?\d{1,2}/.test(line) && /(단체|생활복|교복|반바지)/.test(line);
+}
+function parseNoticeText(text){
+  const lines = text.split('\n').map(l=>l.trim()).filter(Boolean);
+  const parsedItems = [], schedule = [], cautions = [];
+  let lastDate = null, lastLoc='';
+
+  lines.forEach(line=>{
+    const clean = line.replace(/^[-•·*\d\.\)]+\s*/, '');
+    if(isScheduleLine(line)){
+      const dm = line.match(/(\d{1,2})\s?[\/\.월]\s?(\d{1,2})/);
+      const dateStr = dm ? `${dm[1]}/${dm[2]}` : '';
+      if(dateStr) lastDate = dateStr;
+      // 지역명(한글 2글자 이상, 단체/생활복 등 키워드 아닌 첫 토큰) 추정
+      const locMatch = line.match(/[가-힣]{2,}(?=\s)/);
+      schedule.push({ date: lastDate||dateStr, location: locMatch?locMatch[0]:'', label: clean });
+      return;
+    }
+    if(isCautionLine(line)){
+      cautions.push(clean.replace(/^⭐\s*/,''));
+      return;
+    }
+    // 준비물 후보: 너무 길거나 문장형(마침표, 조사로 끝남)이면 제외
+    if(clean.length>0 && clean.length<=18 && !/[.?!]$/.test(clean)){
+      const cat = classifyCategory(clean);
+      const lug = classifyLuggage(line);
+      parsedItems.push({ name:clean, category:cat, luggage:lug });
+    }
+  });
+  return { parsedItems, schedule, cautions };
+}
+
+$('#noticeFile').addEventListener('change', e=>{
+  const file = e.target.files[0]; if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ()=>{ $('#noticeInput').value = reader.result; };
+  reader.readAsText(file, 'utf-8');
+});
+
+$('#analyzeBtn').addEventListener('click', ()=>{
+  const text = $('#noticeInput').value.trim();
+  if(!text){ showToast('안내문 내용을 입력하거나 파일을 업로드해주세요'); return; }
+  const { parsedItems, schedule, cautions } = parseNoticeText(text);
+  const t = currentTrip();
+
+  // 중복 제거 후 병합, 학교필수로 표시
+  let addedCount=0;
+  parsedItems.forEach(p=>{
+    const dup = t.items.find(i=>i.name===p.name);
+    if(dup){ dup.school = true; }
+    else{
+      const maxOrder = t.items.reduce((m,i)=>Math.max(m,i.order),0);
+      t.items.push({ id:uid(), name:p.name, category:p.category, luggage:p.luggage, school:true, done:false, order:maxOrder+1, createdAt:Date.now() });
+      addedCount++;
+    }
+  });
+  // 부족한 기본 준비물 강조: 기본 목록에 있는데 현재 없는 항목 표시용으로 별도 안내
+  const missing = DEFAULT_ITEMS.filter(d=> !t.items.some(i=>i.name===d[1])).map(d=>d[1]);
+
+  if(schedule.length>0) t.schedule = schedule;
+  cautions.forEach(c=>{ if(!t.cautions.includes(c)) t.cautions.push(c); });
+
+  saveState();
+  renderAll();
+
+  const result = $('#aiResult');
+  result.style.display='block';
+  result.innerHTML = `
+    ✅ 준비물 <b>${parsedItems.length}</b>개 인식 (신규 <b>${addedCount}</b>개 추가, 학교필수로 표시)<br>
+    👕 일정 <b>${schedule.length}</b>건 인식<br>
+    ⭐ 주의사항 <b>${cautions.length}</b>건 인식<br>
+    ${missing.length? `⚠️ 기본 준비물 중 아직 없는 항목: ${missing.slice(0,8).join(', ')}${missing.length>8?' 외 '+(missing.length-8)+'개':''}` : ''}
+  `;
+  showToast('학교 안내문 분석이 완료되었습니다 🤖');
+});
+
+/* ---------- 스크롤 상단 버튼 ---------- */
+window.addEventListener('scroll', ()=>{
+  $('#backTop').classList.toggle('show', window.scrollY>400);
+});
+$('#backTop').addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ---------- 유틸: HTML escape ---------- */
+function escapeHtml(str){
+  return String(str||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+/* ---------- 초기 UI 상태 반영 ---------- */
+function applyUiStateToControls(){
+  const ui = currentTrip().ui;
+  $('#searchInput').value = ui.search||'';
+  $('#clearSearch').style.display = ui.search? 'block':'none';
+  $$('.chip', $('#filterChips')).forEach(c=>c.classList.toggle('active', c.dataset.filter===ui.filter));
+  $$('.chip', $('#luggageChips')).forEach(c=>c.classList.toggle('active', c.dataset.lug===ui.luggage));
+  $('#sortSelect').value = ui.sort||'order';
+}
+
+/* ---------- 마스터 렌더 ---------- */
+function renderAll(){
+  renderTripSelect();
+  renderTripInfo();
+  renderDday();
+  renderCautions();
+  renderDashboard();
+  renderSchedule();
+  applyUiStateToControls();
+  renderCategories();
+  renderStats();
+}
+
+/* ---------- 초기화 ---------- */
+applyTheme();
+fillCategorySelect();
+bindTripInfoInputs();
+renderAll();
+if(!storageAvailable){
+  setTimeout(()=> showToast('⚠️ 이 브라우저에서는 저장이 안돼요. 일반 브라우저(Safari/Chrome)로 열어주세요'), 500);
+}
+
+/* AI 학교 안내문 분석 카드: 필수 기능이 아니므로 기본은 접힌 상태로 시작 */
+$('#aiToggleHeader').classList.add('collapsed');
+$('#aiBody').classList.add('hidden');
+$('#aiToggleHeader').addEventListener('click', ()=>{
+  const collapsed = $('#aiToggleHeader').classList.toggle('collapsed');
+  $('#aiBody').classList.toggle('hidden', collapsed);
+});
+</script>
+</body>
+</html>
